@@ -106,3 +106,35 @@ public class HealthCalcTest {
         assertEquals(expectedBmr, actualBmr);
     }
 }
+@Test
+    @DisplayName("Test 7: Handle negative values for BMR calculation.")
+    public void testBmrNegativeValues() {
+        // Arrange
+        HealthCalc calc = new HealthCalc();
+        float negativeWeight = -70;
+        int negativeHeight = -175;
+        int negativeAge = -25;
+        char gender = 'm';
+
+        // Act & Assert
+        assertThrows(Exception.class, () -> {
+            calc.basalMetabolicRate(negativeWeight, negativeHeight, negativeAge, gender);
+        });
+    }
+
+    @Test
+    @DisplayName("Test 8: Handle invalid gender input for BMR calculation.")
+    public void testBmrInvalidGender() {
+        // Arrange
+        HealthCalc calc = new HealthCalc();
+        float weight = 70;
+        int height = 175;
+        int age = 25;
+        char invalidGender = 'x';
+
+        // Act & Assert
+        assertThrows(Exception.class, () -> {
+            calc.basalMetabolicRate(weight, height, age, invalidGender);
+        });
+    }
+}
