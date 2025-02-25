@@ -75,22 +75,23 @@ public class HealthCalcImpl implements HealthCalc {
 }
 
 public class InvalidGenderException extends RuntimeException {
-    public InvalidGenderException(String message) {
-        super(message);
+    public InvalidGenderException() {
+        super("Invalid Gender Exception");
     }
 }
 
 public class InvalidHeightException extends RuntimeException {
-    public InvalidHeightException(String message) {
-        super(message);
+    public InvalidHeightException() {
+        super("Invalid Height Exception");
     }
 }
 
 public class InvalidValueException extends RuntimeException {
-    public InvalidValueException(String message) {
-        super(message);
+    public InvalidValueException() {
+        super("Invalid Value Exception");
     }
 }
+
 
 
 
