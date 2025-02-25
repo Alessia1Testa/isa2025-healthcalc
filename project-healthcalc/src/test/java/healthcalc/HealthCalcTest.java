@@ -1,24 +1,15 @@
 package healthcalc;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-package healthcalc;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-@DisplayName("Tests for the Health Calculator.")
+@DisplayName("Tests for the health calculator.")
 public class HealthCalcTest {
 
-@Test
-@DisplayName("Test 1: Calculate ideal weight for a man.")
+    @Test
+    @DisplayName("Test 1: Calculate ideal weight for a man.")
     public void testIdealWeightMen() throws Exception {
         // Arrange
         HealthCalc calc = new HealthCalc();
@@ -31,11 +22,10 @@ public class HealthCalcTest {
 
         // Assert
         assertEquals(expectedWeight, actualWeight);
-	
     }
 
-@Test
-@DisplayName("Test 2: Calculate ideal weight for a woman.")
+    @Test
+    @DisplayName("Test 2: Calculate ideal weight for a woman.")
     public void testIdealWeightWomen() throws Exception {
         // Arrange
         HealthCalc calc = new HealthCalc();
@@ -50,8 +40,8 @@ public class HealthCalcTest {
         assertEquals(expectedWeight, actualWeight);
     }
 
-@Test
-@DisplayName("Test 3: Handle invalid gender input.")
+    @Test
+    @DisplayName("Test 3: Handle invalid gender input.")
     public void testIdealWeightInvalidGender() {
         // Arrange
         HealthCalc calc = new HealthCalc();
@@ -63,6 +53,22 @@ public class HealthCalcTest {
             calc.idealWeight(height, invalidGender);
         });
     }
+
+    @Test
+    @DisplayName("Test 4: Handle negative height values.")
+    public void testIdealWeightNegativeHeight() {
+        // Arrange
+        HealthCalc calc = new HealthCalc();
+        int negativeHeight = -160;
+        char gender = 'm';
+
+        // Act & Assert
+        assertThrows(Exception.class, () -> {
+            calc.idealWeight(negativeHeight, gender);
+        });
+    }
+}
+
 
 @Test
 @DisplayName("Test 5: Calculate Basal Metabolic Rate (BMR) for a man.")
