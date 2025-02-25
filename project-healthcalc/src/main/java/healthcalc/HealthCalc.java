@@ -1,11 +1,6 @@
 package healthcalc;
 
-/**
- * Calculator of some health parameters of persons.
- * 
- * @author ISA
- *
- */
+
 public interface HealthCalc {
 	
 	/**
@@ -34,3 +29,5 @@ public interface HealthCalc {
 	 */
 	public float basalMetabolicRate(float weight, int height, int age, char gender) throws Exception;
 }
+
+
