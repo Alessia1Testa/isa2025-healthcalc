@@ -15,7 +15,7 @@ public class HealthCalcTest {
         HealthCalc calc = new HealthCalcImpl();
         int height = 175;  
         char gender = 'm';  
-        float expectedWeight = 75;  
+        float expectedWeight = 68.75f;  
 
         // Act
         float actualWeight = calc.idealWeight(height, gender);
@@ -31,7 +31,7 @@ public class HealthCalcTest {
 		HealthCalc calc = new HealthCalcImpl();
         int height = 170;  
         char gender = 'w';  
-        float expectedWeight = 64;  
+        float expectedWeight = 62;  
 
         // Act
         float actualWeight = calc.idealWeight(height, gender);
@@ -79,7 +79,7 @@ public class HealthCalcTest {
         int height = 175;  
         int age = 25;  
         char gender = 'm';  
-        float expectedBmr = 1772;  
+        float expectedBmr = 1724.052f;  
 
         // Act
         float actualBmr = Math.round(calc.basalMetabolicRate(weight, height, age, gender));
@@ -97,7 +97,7 @@ public class HealthCalcTest {
         int height = 165;  
         int age = 30;  
         char gender = 'w';  
-        float expectedBmr = 1500;  
+        float expectedBmr = 1383.683f;  
 
         // Act
         float actualBmr = Math.round(calc.basalMetabolicRate(weight, height, age, gender));
