@@ -80,12 +80,12 @@ To execute the tests using Maven, run the following command in the terminal:
 mvn test
 
 ## Test Screenshot
-![Test Result 1](screenshots/TEST.png)
-![Test Result 2](screenshots/TEST1.png)
-![Test Result 3](screenshots/TEST2.png)
-![Test Result 4](screenshots/TEST3.png)
+![Test Result 1](isa2025-healthcalc/screenshots/TEST.png)
+![Test Result 2](screenshot/TEST1.png)
+![Test Result 3](screenshot/TEST2.png)
+![Test Result 4](screenshot/TEST3.png)
 
 ## Commit Screenshot
-![Commit History 1](screenshots/COMMIT_SCREEN_0.png)
-![Commit History 2](screenshots/COMMIT_SCREEN_1.png)
+![Commit History 1](screenshot/COMMIT_SCREEN_0.png)
+![Commit History 2](screenshot/COMMIT_SCREEN_1.png)
 
