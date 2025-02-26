@@ -1,5 +1,10 @@
 # isa2025-healthcalc
-Health calculator used in Ingeniería del Software Avanzada
+# HealthCalc Project  
+
+## Project Description  
+HealthCalc is a Java application that calculates ideal weight and basal metabolic rate (BMR) based on user input. The project follows standard health formulas and is tested using JUnit and Maven.  
+
+
 private HealthCalc calc;
 @BeforeEach
 void initialize(){
@@ -67,3 +72,19 @@ This function calculates the Basal Metabolic Rate (BMR) of a person using the Ha
 - **Input:** `weight = 70`, `height = 160`, `age = 30`, `gender = 'x'`
 - **Expected Output:** Throws `InvalidGenderException`
 - **Description:** Verifies that an exception is thrown if the gender is invalid (not 'm' or 'w').
+
+## How to Run the Tests  
+To execute the tests using Maven, run the following command in the terminal:  
+
+
+mvn test
+
+## Test Screenshot
+C:\Users\alete\OneDrive\Desktop\isa2025-healthcalc\screenshot\TEST.png
+C:\Users\alete\OneDrive\Desktop\isa2025-healthcalc\screenshot\TEST1.png
+C:\Users\alete\OneDrive\Desktop\isa2025-healthcalc\screenshot\TEST2.png
+C:\Users\alete\OneDrive\Desktop\isa2025-healthcalc\screenshot\TEST3.png
+
+## Commit Screenshot 
+C:\Users\alete\OneDrive\Desktop\isa2025-healthcalc\screenshot\COMMIT_SCREEN_0.png
+C:\Users\alete\OneDrive\Desktop\isa2025-healthcalc\screenshot\COMMIT_SCREEN_1.png
