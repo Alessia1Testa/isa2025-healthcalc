@@ -82,7 +82,7 @@ public class HealthCalcTest {
         float expectedBmr = 1724.052f;  
 
         // Act
-        float actualBmr = Math.round(calc.basalMetabolicRate(weight, height, age, gender));
+        float actualBmr = calc.basalMetabolicRate(weight, height, age, gender);
 
         // Assert
         assertEquals(expectedBmr, actualBmr);
@@ -100,29 +100,23 @@ public class HealthCalcTest {
         float expectedBmr = 1383.683f;  
 
         // Act
-        float actualBmr = Math.round(calc.basalMetabolicRate(weight, height, age, gender));
+        float actualBmr = calc.basalMetabolicRate(weight, height, age, gender);
 
         // Assert
         assertEquals(expectedBmr, actualBmr);
     }
 
+
 	@Test
 	@DisplayName("Test 3: Test for a man with zero weight")
-	public void testBmrZeroWeight() throws Exception {
-    
+	void testBmrZeroWeight() {
 		HealthCalc calc = new HealthCalcImpl();
-		float weight = 0;  
-		int height = 175;  
-		int age = 30;  
-		char gender = 'm';  
-		float expectedBmr = 757.877f;  
-
-		// Act
-		float actualBmr = calc.basalMetabolicRate(weight, height, age, gender);
-
-		// Assert
-		assertEquals(expectedBmr, actualBmr, 0.01); 
+		
+		assertThrows(InvalidValueException.class, () -> {
+			calc.basalMetabolicRate(0, 175, 30, 'm');
+		});
 	}
+
 
 
     @Test
