@@ -97,7 +97,7 @@ public class HealthCalcTest {
         float actualWeight = calc.idealWeight(height, gender);
 
         // Assert
-        assertEquals(expectedWeight, actualWeight);
+        assertEquals(expectedWeight, actualWeight, 0.0001);
     }
 
     @Test
@@ -209,7 +209,6 @@ public class HealthCalcTest {
             calc.basalMetabolicRate(weight, height, age, invalidGender);
         });
     }
-}
 
 
     @Test
@@ -241,4 +240,5 @@ public class HealthCalcTest {
             calc.basalMetabolicRate(weight, height, age, gender);
         });
     }
+}
 
