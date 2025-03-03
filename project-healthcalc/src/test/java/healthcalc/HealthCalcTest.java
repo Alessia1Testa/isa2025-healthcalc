@@ -71,6 +71,63 @@ public class HealthCalcTest {
     }
 
     @Test
+    @DisplayName("Test 5: Calculate ideal weight for a man with minimum valid height (84 cm).")
+    public void testIdealWeightMenMinHeight() throws Exception {
+        HealthCalc calc = new HealthCalcImpl();
+        int height = 84;
+        char gender = 'm';
+        float expectedWeight = 0.5f;
+
+        // Act
+        float actualWeight = calc.idealWeight(height, gender);
+
+        // Assert
+        assertEquals(expectedWeight, actualWeight);
+    }
+
+    @Test
+    @DisplayName("Test 6: Calculate ideal weight for a woman with minimum valid height (67 cm).")
+    public void testIdealWeightWomenMinHeight() throws Exception {
+        HealthCalc calc = new HealthCalcImpl();
+        int height = 67;
+        char gender = 'w';
+        float expectedWeight = 0.2f;
+
+        // Act
+        float actualWeight = calc.idealWeight(height, gender);
+
+        // Assert
+        assertEquals(expectedWeight, actualWeight);
+    }
+
+    @Test
+    @DisplayName("Test 7: Handle height below minimum valid height for men (83 cm).")
+    public void testIdealWeightHeightBelowMinMen() {
+        HealthCalc calc = new HealthCalcImpl();
+        int height = 83;
+        char gender = 'm';
+
+        // Act & Assert
+        assertThrows(InvalidHeightException.class, () -> {
+            calc.idealWeight(height, gender);
+        }, "Height must be >= 84 cm for men. Provided height: 83");
+    }
+
+    @Test
+    @DisplayName("Test 8: Handle height below minimum valid height for women (66 cm).")
+    public void testIdealWeightHeightBelowMinWomen() {
+        HealthCalc calc = new HealthCalcImpl();
+        int height = 66;
+        char gender = 'w';
+
+        // Act & Assert
+        assertThrows(InvalidHeightException.class, () -> {
+            calc.idealWeight(height, gender);
+        }, "Height must be >= 67 cm for women. Provided height: 66");
+    }
+
+
+    @Test
     @DisplayName("Test 1: Calculate Basal Metabolic Rate (BMR) for a man.")
     public void testBmrMen() throws Exception {
         
@@ -120,20 +177,22 @@ public class HealthCalcTest {
 
 
     @Test
-    @DisplayName("Test 4: Handle negative values for BMR calculation.")
-    public void testBmrNegativeValues() {
-        
+    @DisplayName("Test 4: Handle negative age for BMR calculation.")
+    public void testBmrNegativeAge() {
         HealthCalc calc = new HealthCalcImpl();
-        float negativeWeight = -70;  
-        int negativeHeight = -175;  
-        int negativeAge = -25;  
-        char gender = 'm';  
+        float weight = 70;
+        int height = 160;
+        int negativeAge = -5;
+        char gender = 'w';
 
         // Act & Assert
-        assertThrows(Exception.class, () -> {
-            calc.basalMetabolicRate(negativeWeight, negativeHeight, negativeAge, gender);
+        assertThrows(InvalidValueException.class, () -> {
+            calc.basalMetabolicRate(weight, height, negativeAge, gender);
         });
     }
+
+
+
 
     @Test
     @DisplayName("Test 5: Handle invalid gender input for BMR calculation.")
@@ -151,3 +210,35 @@ public class HealthCalcTest {
         });
     }
 }
+
+
+    @Test
+    @DisplayName("Test 6: Handle negative result in BMR calculation for men.")
+    public void testBmrNegativeResultMen() {
+        HealthCalc calc = new HealthCalcImpl();
+        float weight = 1;
+        int height = 1;
+        int age = 20;
+        char gender = 'm';
+
+        // Act & Assert
+        assertThrows(InvalidValueException.class, () -> {
+            calc.basalMetabolicRate(weight, height, age, gender);
+        });
+    }
+
+    @Test
+    @DisplayName("Test 7: Handle negative result in BMR calculation for women.")
+    public void testBmrNegativeResultWomen() {
+        HealthCalc calc = new HealthCalcImpl();
+        float weight = 1;
+        int height = 1;
+        int age = 107;
+        char gender = 'w';
+
+        // Act & Assert
+        assertThrows(InvalidValueException.class, () -> {
+            calc.basalMetabolicRate(weight, height, age, gender);
+        });
+    }
+
