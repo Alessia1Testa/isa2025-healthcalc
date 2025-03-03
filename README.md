@@ -39,13 +39,33 @@ This function calculates the ideal weight (IW) of a person using the Lorentz for
 - **Expected Output:** Throws `InvalidGenderException`
 - **Description:** Verifies that an exception is thrown if the gender is invalid (not 'm' or 'w').
 
+#### 5 Test for minimum height for men
+- **Input:** `height = 84`, `gender = 'm'`
+- **Expected Output:** `IW = 84 - 100 - (84 - 150) / 4 = 84 - 100 + 66 / 4 = 84 - 100 + 16.5  = 0.5`
+- **Description:** Verifies that the formula for men is calculated correctly also at the minimum height before computing a result that is negative (a negative weight can't exist).
+
+#### 6 Test for minimum height for women
+- **Input:** `height = 67`, `gender = 'w'`
+- **Expected Output:** `IW = 67 - 100 - (67 - 150) / 2.5 = 67 - 100 + 83 / 2.5 = 67 - 100 + 33.2 = 0.2`
+- **Description:** Verifies that the formula for women is calculated correctly also at the minimum height before computing a result that is negative (a negative weight can't exist).
+
+#### 7 Test for an invalid range number for the height in input for men
+- **Input:** `height = 83`, `gender = 'm'`
+- **Expected Output:** Throws `InvalidHeightException`
+- **Description:** Verifies that an exception is thrown if the height is below 84 for men.
+
+#### 8 Test for an invalid range number for the height in input for women
+- **Input:** `height = 66`, `gender = 'w'`
+- **Expected Output:** Throws `InvalidHeightException`
+- **Description:** Verifies that an exception is thrown if the height is below 67 for women.
+
 ## Function `basalMetabolicRate (BMR)`
 
 ### Description
 This function calculates the Basal Metabolic Rate (BMR) of a person using the Harris-Benedict formula:
 - For men: `BMR = 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age`
 - For women: `BMR = 447.593 + 9.247 * weight + 3.098 * height - 4.330 * age`
-
+Here I can accept negative values, because the BMR can be negative. 
 ### Example Tests
 
 #### 1 Test for a man with weight 80 kg, height 175 cm, and age 30
@@ -72,6 +92,16 @@ This function calculates the Basal Metabolic Rate (BMR) of a person using the Ha
 - **Input:** `weight = 70`, `height = 160`, `age = 30`, `gender = 'x'`
 - **Expected Output:** Throws `InvalidGenderException`
 - **Description:** Verifies that an exception is thrown if the gender is invalid (not 'm' or 'w').
+
+####  6 Test for a negative result in BMR calculation for men
+- **Input:** `weight = 1`, `height = 1`, `age = 20`, `gender = 'm'`
+- **Expected Output:** Throws `InvalidValueException`
+- **Description:** Verifies that an exception is thrown if the input values lead to a negative BMR for men.
+
+####  7 Test for a negative result in BMR calculation for women
+- **Input:** `weight = 1`, `height = 1`, `age = 107`, `gender = 'w'`
+- **Expected Output:** Throws `InvalidValueException`
+- **Description:** Verifies that an exception is thrown if the input values lead to a negative BMR for women.
 
 ## How to Run the Tests  
 To execute the tests using Maven, run the following command in the terminal:  
