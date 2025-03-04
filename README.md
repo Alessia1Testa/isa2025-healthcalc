@@ -120,3 +120,8 @@ mvn test
 ![Commit History 1](screenshot/COMMIT_SCREEN_0.png)
 ![Commit History 2](screenshot/COMMIT_SCREEN_1.png)
 ![Commit History 3](screenshot/COMMIT_SCREEN_2.png)
+
+
+## UML Screenshot
+This is the UML of the health calculator at the beginning.
+![UML 1](screenshot/UML_1.png)
