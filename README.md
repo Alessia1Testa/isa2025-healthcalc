@@ -125,3 +125,6 @@ mvn test
 ## UML Screenshot
 This is the UML of the health calculator at the beginning.
 ![UML 1](screenshot/UML_1.png)
+
+This is the UML of the health calculator extended, which is an Health Calculator able to compute also the Body Fat Percentage and the Body Mass Index.
+![UML 2](screenshot/UML_2.png)
