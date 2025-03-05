@@ -1,6 +1,8 @@
 # isa2025-healthcalc
 # HealthCalc Project  
 
+## Práctica 1
+
 ## Project Description  
 HealthCalc is a Java application that calculates ideal weight and basal metabolic rate (BMR) based on user input. The project follows standard health formulas and is tested using JUnit and Maven.  
 
@@ -121,10 +123,12 @@ mvn test
 ![Commit History 2](screenshot/COMMIT_SCREEN_1.png)
 ![Commit History 3](screenshot/COMMIT_SCREEN_2.png)
 
-
+## Práctica 2
 ## UML Screenshot
 This is the UML of the health calculator at the beginning.
-![UML 1](screenshot/UML_1.png)
+![UML 1](doc/UML_1.png)
+![UML 1.1](doc/UML1.drawio)
 
 This is the UML of the health calculator extended, which is an Health Calculator able to compute also the Body Fat Percentage and the Body Mass Index.
-![UML 2](screenshot/UML_2.png)
+![UML 2](doc/UML_2.png)
+![UML 2.1](doc/UML2.drawio)
