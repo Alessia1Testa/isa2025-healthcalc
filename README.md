@@ -129,6 +129,50 @@ This is the UML of the health calculator at the beginning.
 ![UML 1](project-healthcalc/doc/UML_1.png)
 ![UML 1.1](project-healthcalc/doc/UML1.drawio)
 
+## Use Case Specification 1: Compute Ideal Weight
+Name
+Compute Ideal Weight
+Primary Actor
+User
+Goal
+The user wants to find the value of the Ideal Weight.
+Scope
+Health Calculator System
+Level
+User Goal
+Stakeholders and Interests
+User: Wants to compute his ideal weight based on his height and his gender as input variables.
+Health Calculator System: Ensures valid input values and provides accurate calculations.
+Developers of the system: Ensure the system handles different inputs correctly and provides useful error messages.
+Preconditions
+The user must provide a valid height in centimeters.
+The user must specify gender as either 'm' (male) or 'w' (female).
+Minimal Guarantees
+The system does not crash and handles correctly invalid inputs.
+Error messages are provided for invalid height or gender values in order to understand the issue.
+Success Guarantee
+The system successfully computes and returns the ideal weight for the given height and gender.
+Trigger 
+The user decide to compute the Ideal weight.
+Main Success Scenario (Basic Flow)
+1. The user inputs their height in centimeters.
+2. The user gives in input the gender ('m' for male, 'w' for female).
+3. The system verifies that the height is a positive number and that is at least 84 cm for men and at least 67 cm for women, which are the minimum height requirements.
+4. The system calculates the ideal weight using the correct formula:
+5. For men: idealWeight = height - 100 - (height - 150) / 4
+6. For women: idealWeight = height - 100 - (height - 150) / 2.5
+7. The system displays the ideal weight to the user.
+Alternative Scenarios
+3.a The system checks and the height value is invalid.
+3.a.1 The system discover that the value of the height received in input by the user is not valid.
+3.a.2 The system warns the user about the problem showing a message InvalidHeightException.
+3.a.3 The system ask again the user to insert the input. Goes back to step 1.
+
+3.b The system checks and the gender value is invalid.
+3.b.1 The system discover that the value of the gender received in input by the user is not valid.
+3.b.2 The system warns the user about the problem showing a message InvalidGenderException.
+3.b.3 The system ask again the user to insert the input. Goes back to step 2.
+
 This is the UML of the health calculator extended, which is an Health Calculator able to compute also the Body Fat Percentage and the Body Mass Index.
 ![UML 2](project-healthcalc/doc/UML_2.png)
 ![UML 2.1](project-healthcalc/doc/UML2.drawio)
