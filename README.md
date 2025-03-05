@@ -126,9 +126,9 @@ mvn test
 ## Práctica 2
 ## UML Screenshot
 This is the UML of the health calculator at the beginning.
-![UML 1](doc/UML_1.png)
-![UML 1.1](doc/UML1.drawio)
+![UML 1](project-healthcalc/doc/UML_1.png)
+![UML 1.1](project-healthcalc/doc/UML1.drawio)
 
 This is the UML of the health calculator extended, which is an Health Calculator able to compute also the Body Fat Percentage and the Body Mass Index.
-![UML 2](doc/UML_2.png)
-![UML 2.1](doc/UML2.drawio)
+![UML 2](project-healthcalc/doc/UML_2.png)
+![UML 2.1](project-healthcalc/doc/UML2.drawio)
