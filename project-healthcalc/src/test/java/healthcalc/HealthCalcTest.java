@@ -126,6 +126,20 @@ public class HealthCalcTest {
         }, "Height must be >= 67 cm for women. Provided height: 66");
     }
 
+    @Test
+    @DisplayName("Test 9: Handle unreal height values.")
+    public void testIdealWeightUnrealHeight() {
+        
+        HealthCalc calc = new HealthCalcImpl();
+        int unrealHeight = 250;  
+        char gender = 'm';  
+
+        // Act & Assert
+        assertThrows(InvalidHeightException.class, () -> {
+            calc.idealWeight(unrealHeight, gender);
+        });
+    }
+
 
     @Test
     @DisplayName("Test 1: Calculate Basal Metabolic Rate (BMR) for a man.")
@@ -240,5 +254,51 @@ public class HealthCalcTest {
             calc.basalMetabolicRate(weight, height, age, gender);
         });
     }
+
+    @Test
+    @DisplayName("Test 8: Handle unreal height for BMR calculation.")
+    public void testBmrUnrealHeightAge() {
+        HealthCalc calc = new HealthCalcImpl();
+        float weight = 70;
+        int unrealHeight = 260;
+        int age = 30;
+        char gender = 'm';
+
+        // Act & Assert
+        assertThrows(InvalidValueException.class, () -> {
+            calc.basalMetabolicRate(weight, unrealHeight, age, gender);
+        });
+    }
+
+    @Test
+    @DisplayName("Test 9: Handle unreal age for BMR calculation.")
+    public void testBmrUnrealAge() {
+        HealthCalc calc = new HealthCalcImpl();
+        float weight = 70;
+        int height = 160;
+        int unrealAge = 150;
+        char gender = 'm';
+
+        // Act & Assert
+        assertThrows(InvalidValueException.class, () -> {
+            calc.basalMetabolicRate(weight, height, unrealAge, gender);
+        });
+    }
+
+    @Test
+    @DisplayName("Test 10: Handle unreal weight for BMR calculation.")
+    public void testBmrUnrealWeight() {
+        HealthCalc calc = new HealthCalcImpl();
+        float unrealWeight = 370;
+        int height = 160;
+        int age = 30;
+        char gender = 'w';
+
+        // Act & Assert
+        assertThrows(InvalidValueException.class, () -> {
+            calc.basalMetabolicRate(unrealWeight, height, age, gender);
+        });
+    }
+    
 }
 

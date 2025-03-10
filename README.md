@@ -59,6 +59,11 @@ This function calculates the ideal weight (IW) of a person using the Lorentz for
 - **Expected Output:** Throws `InvalidHeightException`
 - **Description:** Verifies that an exception is thrown if the height is below 67 for women.
 
+#### 9 Test for a unreal height value
+- **Input:** `height = 250`, `gender = 'w'`
+- **Expected Output:** Throws `InvalidHeightException`
+- **Description:** Verifies that an exception is thrown if the height is unreal, >230.
+
 ## Function `basalMetabolicRate (BMR)`
 
 ### Description
@@ -102,6 +107,21 @@ Here I can accept negative values, because the BMR can be negative.
 - **Input:** `weight = 1`, `height = 1`, `age = 107`, `gender = 'w'`
 - **Expected Output:** Throws `InvalidValueException`
 - **Description:** Verifies that an exception is thrown if the input values lead to a negative BMR for women.
+
+####  8 Test for an unreal height input in BMR calculation
+- **Input:** `weight = 70`, `height = 260`, `age = 30`, `gender = 'w'`
+- **Expected Output:** Throws `InvalidValueException`
+- **Description:** Verifies that an exception is thrown if the height input is >230.
+
+####  9 Test for an unreal age input in BMR calculation
+- **Input:** `weight = 70`, `height = 160`, `age = 150`, `gender = 'm'`
+- **Expected Output:** Throws `InvalidValueException`
+- **Description:** Verifies that an exception is thrown if the age in input is > 120.
+
+####  10 Test for an unreal weight input in BMR calculation
+- **Input:** `weight = 370`, `height = 160`, `age = 30`, `gender = 'w'`
+- **Expected Output:** Throws `InvalidValueException`
+- **Description:** Verifies that an exception is thrown if the weight in input is >300.
 
 ## How to Run the Tests  
 To execute the tests using Maven, run the following command in the terminal:  
