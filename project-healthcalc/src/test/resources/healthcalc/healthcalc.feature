@@ -9,7 +9,12 @@ Feature: Ideal Weight Calculation
         Then The system returns an ideal weight of 68.75
  
     @tag2
-    Scenario: Compute ideal weight for a woman of <n> cm
+    Scenario Outline: Compute ideal weight for a woman
         Given I have a health calculator
-        When I enter a height of <n> cm and gender 'w'
-        Then the system returns an ideal weight of <value>
+        When I enter a height of <height> cm and gender "w"
+        Then the system returns an ideal weight of <expectedWeight>
+
+    Examples:
+        | height | expectedWeight |
+        | 160    | 56.00          |
+        | 170    | 62.00          |

@@ -31,6 +31,23 @@ public class StepDefinitions {
         // Assert: Check if the calculated weight matches the expected value
         assertEquals(double1, result, 0.01);
     }   
+
+    @When("I enter a height of {int} cm and gender {string}")
+    public void i_enter_a_height_of_n_cm_and_gender(Integer height, String gender) {
+        // Act: Call the idealWeight method with provided height and gender
+        try {
+            result = healthCalc.idealWeight(height, gender.charAt(0)); // Convert string gender to char
+        } catch (Exception e) {
+            exception = e;
+        }
+    }
+
+    @Then("the system returns an ideal weight of {double}")
+    public void the_system_returns_an_ideal_weight_of_value(Double expectedWeight) {
+        // Assert: Verify the expected result
+        assertNull(exception, "An exception was thrown: " + exception);
+        assertEquals(expectedWeight, result, 0.01);
+    }
 }
 
 
