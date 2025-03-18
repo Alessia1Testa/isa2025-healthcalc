@@ -7,3 +7,19 @@ Feature: Basal Metabolic Rate Calculation
         Given I have a health calculator 
         When I enter weight 80 kg, height 175 cm, age 30, and gender 'm' 
         Then the system returns a BMR of 1829.637
+
+    @tag2
+    Scenario Outline: Compute BMR for different users
+        Given I have a health calculator
+        When I enter weight <weight> kg, height <height> cm, age <age>, and gender '<gender>'
+        Then the system returns a BMR of <expectedBMR>
+
+        Examples:
+        | weight | height | age | gender | expectedBMR |
+        | 60     | 160    | 25  | w      | 1389.84     |
+        | 70     | 175    | 30  | m      | 1695.67     |
+        | 55     | 165    | 22  | w      | 1372.09     |
+        | 80     | 180    | 40  | m      | 1796.86     |
+        | 90     | 170    | 35  | m      | 1911.23     |
+
+    
