@@ -7,5 +7,4 @@ Feature: Ideal Weight Calculation
     Given I have a health calculator
     When I enter a height of 175 cm and a man gender
     Then The system returns an ideal weight of 68.75
-
  
