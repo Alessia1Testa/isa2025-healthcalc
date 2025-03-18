@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static org.junit.jupiter.api.Assertions.*;
 import healthcalc.HealthCalcImpl;
+import healthcalc.InvalidHeightException;
 
 public class StepDefinitions {
 
@@ -48,6 +49,17 @@ public class StepDefinitions {
         assertNull(exception, "An exception was thrown: " + exception);
         assertEquals(expectedWeight, result, 0.01);
     }
+
+    @Then("the system throws an InvalidHeightException")
+    public void the_system_throws_an_invalid_height_exception() {
+        // Assert: Check if an exception was thrown and if it's the correct type
+        Exception exception = assertThrows(InvalidHeightException.class, () -> {
+            healthCalc.idealWeight(-160, 'w');
+        });
+        
+        assertNotNull(exception, "Exception should not be null"); 
+    }
+
 }
 
 
