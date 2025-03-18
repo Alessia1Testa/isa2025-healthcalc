@@ -30,3 +30,33 @@ Feature: Ideal Weight Calculation
         Given I have a health calculator 
         When I enter a height of 160 cm and gender 'x' 
         Then the system throws an InvalidGenderException
+
+    @tag5
+    Scenario Outline: Minimum height for men 
+        Given I have a health calculator 
+        When I enter a height of 84 cm and gender 'm' 
+        Then the system returns an ideal weight of 0.5
+
+    @tag6
+    Scenario Outline: Minimum height for women 
+        Given I have a health calculator 
+        When I enter a height of 67 cm and gender 'w' 
+        Then the system returns an ideal weight of 0.2
+
+    @tag7 
+    Scenario Outline: Invalid range height for men 
+        Given I have a health calculator 
+        When I enter a height of 83 cm and gender 'm' 
+        Then the system throws an InvalidHeightException
+
+    @tag8
+    Scenario Outline: Invalid range height for women 
+        Given I have a health calculator 
+        When I enter a height of 66 cm and gender 'w' 
+        Then the system throws an InvalidHeightException
+
+    @tag9 
+    Scenario Outline: Unreal height value 
+        Given I have a health calculator 
+        When I enter a height of 250 cm and gender 'w' 
+        Then the system throws an InvalidHeightException
