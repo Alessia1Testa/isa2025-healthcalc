@@ -8,6 +8,7 @@ import healthcalc.HealthCalcImpl;
 import healthcalc.InvalidGenderException;
 import healthcalc.InvalidHeightException;
 
+
 public class StepDefinitions {
 
     private HealthCalcImpl healthCalc;
@@ -69,7 +70,21 @@ public class StepDefinitions {
     }
 
 
+
+    private double calculatedBMR;
+
+    @When("I enter weight {int} kg, height {int} cm, age {int}, and gender {string}")
+    public void i_enter_weight_kg_height_cm_age_and_gender(Integer weight, Integer height, Integer age, String gender) {
+        calculatedBMR = healthCalc.basalMetabolicRate(weight, height, age, gender.charAt(0));
+    }
+
+    @Then("the system returns a BMR of {double}")
+    public void the_system_returns_a_bmr_of(Double expectedBMR) {
+        assertEquals(expectedBMR, calculatedBMR, 0.01, "BMR calculation is incorrect");
+    }
+
 }
+
 
 
 
