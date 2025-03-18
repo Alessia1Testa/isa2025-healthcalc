@@ -18,3 +18,9 @@ Feature: Ideal Weight Calculation
         | height | expectedWeight |
         | 160    | 56.00          |
         | 170    | 62.00          |
+
+    @tag3
+    Scenario: Negative height value
+        Given I have a health calculator
+        When I enter a height of -160 cm and gender 'w'
+        Then the system throws an InvalidHeightException
