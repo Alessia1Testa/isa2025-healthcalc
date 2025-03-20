@@ -22,4 +22,14 @@ Feature: Basal Metabolic Rate Calculation
         | 80     | 180    | 40  | m      | 1796.86     |
         | 90     | 170    | 35  | m      | 1911.23     |
 
-    
+    @tag3 
+    Scenario Outline: Zero weight for a man 
+        Given I have a health calculator 
+        When I enter weight 0 kg, height 175 cm, age 30, and gender 'm' 
+        Then the system throws an InvalidValueException
+
+    @tag4 
+    Scenario Outline: Negative age value 
+        Given I have a health calculator 
+        When I enter weight 70 kg, height 160 cm, age -5, and gender 'w' 
+        Then the system throws an InvalidValueException

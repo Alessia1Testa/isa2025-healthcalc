@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import healthcalc.HealthCalcImpl;
 import healthcalc.InvalidGenderException;
 import healthcalc.InvalidHeightException;
+import healthcalc.InvalidValueException;
 
 
 public class StepDefinitions {
@@ -71,18 +72,45 @@ public class StepDefinitions {
 
 
 
+    
+
     private double calculatedBMR;
 
+    
     @When("I enter weight {int} kg, height {int} cm, age {int}, and gender {string}")
     public void i_enter_weight_kg_height_cm_age_and_gender(Integer weight, Integer height, Integer age, String gender) {
-        calculatedBMR = healthCalc.basalMetabolicRate(weight, height, age, gender.charAt(0));
+        exception = null;
+        try {
+            calculatedBMR = healthCalc.basalMetabolicRate(weight, height, age, gender.charAt(0));
+        } catch (Exception e) {
+            exception = e;
+        } 
     }
+        
 
     @Then("the system returns a BMR of {double}")
     public void the_system_returns_a_bmr_of(Double expectedBMR) {
         assertEquals(expectedBMR, calculatedBMR, 0.01, "BMR calculation is incorrect");
     }
 
+    @Then("the system throws an InvalidValueException")
+    public void the_system_throws_an_invalid_value_exception() {
+        // Ensure that an exception was thrown
+        assertNotNull(exception, "Expected an InvalidValueException, but no exception was thrown.");
+        
+        // Check if the exception is of type InvalidValueException
+        assertTrue(exception instanceof InvalidValueException, 
+                "Expected InvalidValueException but got: " + exception.getClass().getSimpleName());
+    }
+
+
+    
+
+
+
+
+
+    
 }
 
 
