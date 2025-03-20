@@ -39,3 +39,9 @@ Feature: Basal Metabolic Rate Calculation
         Given I have a health calculator 
         When I enter weight 70 kg, height 160 cm, age 30, and gender 'x' 
         Then the system throws an InvalidGenderException
+
+    @tag6 
+    Scenario Outline: Negative BMR result for men 
+        Given I have a health calculator 
+        When I enter weight 1 kg, height 1 cm, age 20, and gender 'm' 
+        Then the system throws an InvalidValueException
