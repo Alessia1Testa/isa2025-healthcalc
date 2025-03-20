@@ -121,3 +121,124 @@ mvn test
 ![Commit History 3](screenshot/COMMIT_SCREEN_2.png)
 
 # Practica 3
+
+# Feature: Ideal Weight Calculation  
+As a user, I want to compute my ideal weight so that I can know if I am healthy.
+
+## @tag1 - Compute ideal weight for a man of 175 cm  
+**Given** I have a health calculator  
+**When** I enter a height of 175 cm and a man gender  
+**Then** The system returns an ideal weight of 68.75  
+
+## @tag2 - Compute ideal weight for a woman  
+**Given** I have a health calculator  
+**When** I enter a height of `<height>` cm and gender `"w"`  
+**Then** the system returns an ideal weight of `<expectedWeight>`  
+
+### Examples:  
+| height | expectedWeight |  
+|--------|---------------|  
+| 160    | 56.00         |  
+| 170    | 62.00         |  
+
+## @tag3 - Negative height value  
+**Given** I have a health calculator  
+**When** I enter a height of -160 cm and gender 'w'  
+**Then** the system throws an InvalidHeightException  
+
+## @tag4 - Invalid gender value  
+**Given** I have a health calculator  
+**When** I enter a height of 160 cm and gender 'x'  
+**Then** the system throws an InvalidGenderException  
+
+## @tag5 - Minimum height for men  
+**Given** I have a health calculator  
+**When** I enter a height of 84 cm and gender 'm'  
+**Then** the system returns an ideal weight of 0.5  
+
+## @tag6 - Minimum height for women  
+**Given** I have a health calculator  
+**When** I enter a height of 67 cm and gender 'w'  
+**Then** the system returns an ideal weight of 0.2  
+
+## @tag7 - Invalid range height for men  
+**Given** I have a health calculator  
+**When** I enter a height of 83 cm and gender 'm'  
+**Then** the system throws an InvalidHeightException  
+
+## @tag8 - Invalid range height for women  
+**Given** I have a health calculator  
+**When** I enter a height of 66 cm and gender 'w'  
+**Then** the system throws an InvalidHeightException  
+
+## @tag9 - Unreal height value  
+**Given** I have a health calculator  
+**When** I enter a height of 250 cm and gender 'w'  
+**Then** the system throws an InvalidHeightException  
+
+---
+
+# Feature: Basal Metabolic Rate Calculation  
+As a user, I want to compute my Basal Metabolic Rate so that I can know my daily calorie needs.
+
+## @tag1 - Compute BMR for a man with weight 80 kg, height 175 cm, and age 30  
+**Given** I have a health calculator  
+**When** I enter weight 80 kg, height 175 cm, age 30, and gender 'm'  
+**Then** the system returns a BMR of 1829.637  
+
+## @tag2 - Compute BMR for different users  
+**Given** I have a health calculator  
+**When** I enter weight `<weight>` kg, height `<height>` cm, age `<age>`, and gender `'<gender>'`  
+**Then** the system returns a BMR of `<expectedBMR>`  
+
+### Examples:  
+| weight | height | age | gender | expectedBMR |  
+|--------|--------|-----|--------|-------------|  
+| 60     | 160    | 25  | w      | 1389.84     |  
+| 70     | 175    | 30  | m      | 1695.67     |  
+| 55     | 165    | 22  | w      | 1372.09     |  
+| 80     | 180    | 40  | m      | 1796.86     |  
+| 90     | 170    | 35  | m      | 1911.23     |  
+
+## @tag3 - Zero weight for a man  
+**Given** I have a health calculator  
+**When** I enter weight 0 kg, height 175 cm, age 30, and gender 'm'  
+**Then** the system throws an InvalidValueException  
+
+## @tag4 - Negative age value  
+**Given** I have a health calculator  
+**When** I enter weight 70 kg, height 160 cm, age -5, and gender 'w'  
+**Then** the system throws an InvalidValueException  
+
+## @tag5 - Invalid gender value in BMR calculation  
+**Given** I have a health calculator  
+**When** I enter weight 70 kg, height 160 cm, age 30, and gender 'x'  
+**Then** the system throws an InvalidGenderException  
+
+## @tag6 - Negative BMR result for men  
+**Given** I have a health calculator  
+**When** I enter weight 1 kg, height 1 cm, age 20, and gender 'm'  
+**Then** the system throws an InvalidValueException  
+
+## @tag7 - Negative BMR result for women  
+**Given** I have a health calculator  
+**When** I enter weight 1 kg, height 1 cm, age 107, and gender 'w'  
+**Then** the system throws an InvalidValueException  
+
+## @tag8 - Unreal height input in BMR calculation  
+**Given** I have a health calculator  
+**When** I enter weight 70 kg, height 260 cm, age 30, and gender 'w'  
+**Then** the system throws an InvalidValueException  
+
+## @tag9 - Unreal age input in BMR calculation  
+**Given** I have a health calculator  
+**When** I enter weight 70 kg, height 160 cm, age 150, and gender 'm'  
+**Then** the system throws an InvalidValueException  
+
+## @tag10 - Unreal weight input in BMR calculation  
+**Given** I have a health calculator  
+**When** I enter weight 370 kg, height 160 cm, age 30, and gender 'w'  
+**Then** the system throws an InvalidValueException  
+
+
+
