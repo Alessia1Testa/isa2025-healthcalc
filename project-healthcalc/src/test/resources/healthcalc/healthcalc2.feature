@@ -57,3 +57,9 @@ Feature: Basal Metabolic Rate Calculation
         Given I have a health calculator 
         When I enter weight 70 kg, height 260 cm, age 30, and gender 'w' 
         Then the system throws an InvalidValueException
+
+    @tag9 
+    Scenario Outline: Unreal age input in BMR calculation 
+        Given I have a health calculator 
+        When I enter weight 70 kg, height 160 cm, age 150, and gender 'm' 
+        Then the system throws an InvalidValueException
