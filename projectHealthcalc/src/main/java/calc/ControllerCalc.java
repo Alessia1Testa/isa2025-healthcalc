@@ -57,7 +57,7 @@ public class ControllerCalc implements ActionListener {
                 view.showBMIText("The Body Mass Index is equal to:" +bmi);
 
             } catch (NumberFormatException exc) {
-                view.showBMIText("Introduce positive numbers.");
+                view.showBMIText("Introduce positive numbers. Height must be < 230 cm. Weight must be < 300 kg. Age must be < 120.");
             } catch (Exception exc) {
                 view.showBMIText(exc.getMessage());  
             }

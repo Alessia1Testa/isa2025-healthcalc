@@ -35,8 +35,18 @@ public float idealWeight(int height, char gender) throws InvalidHeightException,
 
     @Override
     public float basalMetabolicRate(float weight, int height, int age, char gender) throws InvalidValueException, InvalidGenderException {
-        if (weight <= 0 || height <= 0 || age <= 0 || weight > 300 || height > 230 || age > 120) {
-            throw new InvalidValueException("Invalid values: weight, height, and age must be positive.");
+    	if (weight <= 0 || weight > 300) {
+            throw new InvalidValueException("Weight must be positive and less than or equal to 300.");
+        }
+
+        
+        if (height <= 0 || height > 230) {
+            throw new InvalidValueException("Height must be positive and less than or equal to 230.");
+        }
+
+        
+        if (age <= 0 || age > 120) {
+            throw new InvalidValueException("Age must be positive and less than or equal to 120.");
         }
         if (gender != 'm' && gender != 'w') {
             throw new InvalidGenderException("Invalid gender: " + gender);
