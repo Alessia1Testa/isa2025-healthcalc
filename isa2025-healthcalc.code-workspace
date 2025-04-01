@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../isa2025-healthcalc"
+		},
+		{
+			"path": "../../isa25/isa2025-healthcalc"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "interactive"
+	}
+}
