@@ -84,7 +84,7 @@ public class VistaCalc extends JFrame {
 		
 		tFResultBodyMassIndex = new JTextField();
 		panel_BMI_S_S.add(tFResultBodyMassIndex, BorderLayout.CENTER);
-		tFResultBodyMassIndex.setColumns(10);
+		tFResultBodyMassIndex.setColumns(80);
 		
 		JPanel panel_N = new JPanel();
 		panelBodyMassIndex.add(panel_N, BorderLayout.NORTH);
@@ -192,7 +192,7 @@ public class VistaCalc extends JFrame {
 		
 		tFResultIdealWeight = new JTextField();
 		panel_IW_S_S.add(tFResultIdealWeight, BorderLayout.CENTER);
-		tFResultIdealWeight.setColumns(50);
+		tFResultIdealWeight.setColumns(80);
 		
 		this.pack();
 		this.setVisible(true);
