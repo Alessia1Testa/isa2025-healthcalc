@@ -5,7 +5,7 @@ public class HealthCalcImpl implements HealthCalc {
     @Override
 public float idealWeight(int height, char gender) throws InvalidHeightException, InvalidGenderException {
     
-    if (height <= 0) {
+    if (height <= 0 || height > 230) {
         throw new InvalidHeightException("Invalid height: " + height);
     }
 
@@ -35,7 +35,7 @@ public float idealWeight(int height, char gender) throws InvalidHeightException,
 
     @Override
     public float basalMetabolicRate(float weight, int height, int age, char gender) throws InvalidValueException, InvalidGenderException {
-        if (weight <= 0 || height <= 0 || age <= 0) {
+        if (weight <= 0 || height <= 0 || age <= 0 || weight > 300 || height > 230 || age > 120) {
             throw new InvalidValueException("Invalid values: weight, height, and age must be positive.");
         }
         if (gender != 'm' && gender != 'w') {

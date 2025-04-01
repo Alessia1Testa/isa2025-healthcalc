@@ -28,7 +28,6 @@ public class VistaCalc extends JFrame {
 	
 	private JComboBox<String> cBSexo1;
     private JComboBox<String> cBSexo2;
-    private JLabel lblIdealWeight, lblBodyMassIndex;
     private JButton btnComputeIdealWeight, btnComputeBodyMassIndex;
 
 	/**
@@ -83,12 +82,8 @@ public class VistaCalc extends JFrame {
 		panel_S.add(panel_BMI_S_S, BorderLayout.SOUTH);
 		panel_BMI_S_S.setLayout(new BorderLayout(0, 0));
 		
-		lblBodyMassIndex = new JLabel();
-		lblBodyMassIndex.setText("The Body Mass Index is equal to: ");
-		panel_BMI_S_S.add(lblBodyMassIndex, BorderLayout.WEST);
-		
 		tFResultBodyMassIndex = new JTextField();
-		panel_BMI_S_S.add(tFResultBodyMassIndex, BorderLayout.EAST);
+		panel_BMI_S_S.add(tFResultBodyMassIndex, BorderLayout.CENTER);
 		tFResultBodyMassIndex.setColumns(10);
 		
 		JPanel panel_N = new JPanel();
@@ -195,13 +190,9 @@ public class VistaCalc extends JFrame {
 		panel_IW_S.add(panel_IW_S_S, BorderLayout.SOUTH);
 		panel_IW_S_S.setLayout(new BorderLayout(0, 0));
 		
-		lblIdealWeight = new JLabel();
-		lblIdealWeight.setText("The Ideal Weight is equal to:");
-		panel_IW_S_S.add(lblIdealWeight, BorderLayout.WEST);
-		
 		tFResultIdealWeight = new JTextField();
-		panel_IW_S_S.add(tFResultIdealWeight, BorderLayout.EAST);
-		tFResultIdealWeight.setColumns(10);
+		panel_IW_S_S.add(tFResultIdealWeight, BorderLayout.CENTER);
+		tFResultIdealWeight.setColumns(50);
 		
 		this.pack();
 		this.setVisible(true);
@@ -234,11 +225,13 @@ public class VistaCalc extends JFrame {
 
     
     public void showIWText(String message) {
-        this.lblIdealWeight.setText(message);  
+    	this.tFResultIdealWeight.setText(message);  
+    	System.out.println(tFResultIdealWeight);
     }
 
     public void showBMIText(String message) {
-        this.lblBodyMassIndex.setText(message);  
+        this.tFResultBodyMassIndex.setText(message); 
+        System.out.println(tFResultBodyMassIndex);
     }
 
 	public void registerController(ControllerCalc c) {
