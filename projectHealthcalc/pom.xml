@@ -27,6 +27,8 @@
 	                </dependency>
 	            </dependencies>
 	        </plugin>
+
+	        
 	           <plugin>
               <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-jar-plugin</artifactId>
@@ -39,7 +41,7 @@
                                     <addClasspath>true</addClasspath>
                                     <!-- Specifies that all dependencies of our application are found -->
                                     <!-- Configures the main class of the application -->
-                                    <mainClass>uma.gui.Main</mainClass>
+                                    <mainClass>calc.MainCalc</mainClass>
                                 </manifest>
                             </archive>
                         </configuration>
