@@ -6,7 +6,7 @@ public class HealthCalcImpl implements HealthCalc {
 public float idealWeight(int height, char gender) throws InvalidHeightException, InvalidGenderException {
     
     if (height <= 0 || height > 230) {
-        throw new InvalidHeightException("Invalid height: " + height);
+        throw new InvalidHeightException("Invalid height: " + height + ". It must be a positive value (>= 84 cm for men and >= 67 cm for women) and smaller than 230 cm");
     }
 
     
