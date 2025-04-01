@@ -30,7 +30,7 @@ public class ControllerCalc implements ActionListener {
 
                 
                 float idealWeight = model.idealWeight(height, gender);
-                view.showIWText( "The Ideal Weight is equal to:" + idealWeight + " kg");
+                view.showIWText( "The Ideal Weight is equal to: " + idealWeight + " kg");
 
             } catch (NumberFormatException exc) {
                 view.showIWText("Introduce a positive height. It must be >=84 cm for men, and >= 67 cm for women.");
@@ -54,7 +54,7 @@ public class ControllerCalc implements ActionListener {
 
                 
                 float bmi = model.basalMetabolicRate(weight, height, age, gender);  
-                view.showBMIText("The Body Mass Index is equal to:" +bmi);
+                view.showBMIText("The Body Mass Index is equal to: " +bmi);
 
             } catch (NumberFormatException exc) {
                 view.showBMIText("Introduce positive numbers. Height must be < 230 cm. Weight must be < 300 kg. Age must be < 120.");

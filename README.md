@@ -119,3 +119,8 @@ mvn test
 ![Commit History 1](screenshot/COMMIT_SCREEN_0.png)
 ![Commit History 2](screenshot/COMMIT_SCREEN_1.png)
 ![Commit History 3](screenshot/COMMIT_SCREEN_2.png)
+
+## Practica 4
+
+Boceto:
+![Boceto](screenshot/bozzetto.png)
