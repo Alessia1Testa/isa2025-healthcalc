@@ -126,3 +126,8 @@ mvn test
 Boceto:
 ![Boceto](screenshot/bozzetto.png)
 ![Interfaz Grafica](screenshot/interfaz_grafica.png)
+
+
+# Practica 6
+![UML_singleton](design_patterns/UML_singleton.png)
+I've done the UML using drawio, but the source could not be downloaded
