@@ -129,5 +129,5 @@ Boceto:
 
 
 # Practica 6
-![UML_singleton](design_patterns/UML_singleton.png)
+![UML_singleton](projectHealthcalc/design_patterns/UML_singleton.png)
 I've done the UML using drawio, but the source could not be downloaded
