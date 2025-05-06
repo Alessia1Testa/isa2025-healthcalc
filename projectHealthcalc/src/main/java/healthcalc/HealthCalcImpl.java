@@ -6,7 +6,7 @@ public class HealthCalcImpl implements HealthCalc {
     private static HealthCalcImpl instance;
 
     
-    private HealthCalcImpl() {
+    HealthCalcImpl() {
         
     }
 

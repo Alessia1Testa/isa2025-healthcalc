@@ -8,11 +8,11 @@ import healthcalc.HealthCalcImpl;
 
 public class ControllerCalc implements ActionListener {
 
-    private HealthCalcImpl model;  
+    private HealthCalc model;  
     private VistaCalc view;
 
     
-    public ControllerCalc(HealthCalcImpl model, VistaCalc view) {
+    public ControllerCalc(HealthCalc model, VistaCalc view) {
         this.model = model; 
         this.view = view;
     }
