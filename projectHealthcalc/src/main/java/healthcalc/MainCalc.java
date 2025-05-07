@@ -10,7 +10,11 @@ public static void main(String[] args) {
 	HealthCalc model = HealthCalcImpl.getInstance();
 
     
-    HealthHospital hospitalCalc = new HealthCalcAdapter(model);
+    HealthHospital adapter = new HealthCalcAdapter(model);
+
+	HealthStats proxy = new HealthCalcProxy(adapter);
+    
+	HealthHospital hospital = (HealthHospital) proxy;
 
 	}
 }
