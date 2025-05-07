@@ -4,8 +4,8 @@ public class HealthCalcAdapter implements HealthHospital {
 
     private final HealthCalc calc;
 
-    public HealthCalcAdapter() {
-        this.calc = HealthCalcImpl.getInstance(); 
+    public HealthCalcAdapter(HealthCalc calc) {
+        this.calc = calc;
     }
 
     @Override
