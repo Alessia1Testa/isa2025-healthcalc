@@ -132,3 +132,4 @@ Boceto:
 ![UML_singleton](projectHealthcalc/design_patterns/UML_singleton.png)
 I've done the UML using drawio, but the source could not be downloaded
 ![UML_adapter](projectHealthcalc/design_patterns/UML_adapter.png)
+![UML_proxy](projectHealthcalc/design_patterns/UML_proxy.png)
