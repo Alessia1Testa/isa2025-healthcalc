@@ -15,8 +15,8 @@ public class HealthCalcProxy implements HealthHospital, HealthStats {
     private int hombres = 0;
     private int mujeres = 0;
 
-    public HealthCalcProxy(HealthHospital realCalc) {
-        this.hCalc = realCalc;
+    public HealthCalcProxy(HealthHospital heCalc) {
+        this.hCalc = heCalc;
     }
 
     @Override
