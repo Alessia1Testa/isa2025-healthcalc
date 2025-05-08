@@ -128,9 +128,18 @@ Boceto:
 ![Interfaz Grafica](screenshot/interfaz_grafica.png)
 
 
-# Practica 6
+# Práctica 6: Patrones de diseño
 ![UML_singleton](projectHealthcalc/design_patterns/UML_singleton.png)
 I've done the UML using drawio, but the source could not be downloaded
+
+
+a. Adapter is used
 ![UML_adapter](projectHealthcalc/design_patterns/UML_adapter.png)
+
+
+b. Proxy is used
 ![UML_proxy](projectHealthcalc/design_patterns/UML_proxy.png)
+
+
+c. Decorator is used
 ![UML_decorator](projectHealthcalc/design_patterns/UML_decorator.png)
