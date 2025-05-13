@@ -16,7 +16,9 @@ public static void main(String[] args) {
     
 	HealthHospital hospital = (HealthHospital) proxy;
 
-	HealthHospital european = new BMRMessageDecorator(new EuropeanHealthCalc(hospital));
+	HealthHospital european = new EuropeanHealthCalc(adapter);
+
+	HealthHospital englishCalc = new BMREngMessageDecorator(european);
 
 	}
 }

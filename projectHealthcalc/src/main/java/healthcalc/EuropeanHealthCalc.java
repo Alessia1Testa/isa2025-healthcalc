@@ -1,6 +1,6 @@
 package healthcalc;
 
-public class EuropeanHealthCalc extends HealthHospitalDecorator {
+public class EuropeanHealthCalc extends HealthHospitalDecoratorRegion {
     public EuropeanHealthCalc(HealthHospital wrappee) {
         super(wrappee);
     }
@@ -9,6 +9,6 @@ public class EuropeanHealthCalc extends HealthHospitalDecorator {
     public double bmr(char genero, int edad, float alturaMetros, int pesoGramos) {
         float alturaCm = alturaMetros * 100;
         int pesoKg = pesoGramos / 1000;
-        return super.bmr(genero, edad, alturaCm, pesoKg);
+        return wrappee.bmr(genero, edad, alturaCm, pesoKg);
     }
 }

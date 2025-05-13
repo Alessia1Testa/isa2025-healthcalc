@@ -1,9 +1,9 @@
 package healthcalc;
 
-public abstract class HealthHospitalDecorator implements HealthHospital {
+public abstract class HealthHospitalDecoratorRegion implements HealthHospital {
     protected HealthHospital wrappee;
 
-    public HealthHospitalDecorator(HealthHospital wrappee) {
+    public HealthHospitalDecoratorRegion(HealthHospital wrappee) {
         this.wrappee = wrappee;
     }
 
