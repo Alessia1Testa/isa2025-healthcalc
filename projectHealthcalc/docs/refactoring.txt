@@ -10,4 +10,9 @@ Category: Attribute Refactoring
 
 Replaced the primitive type char used for gender ('m', 'w') with an enumeration named Gender, with values MALE and FEMALE.
 
+Manual changes required:
+1 enum class added (Gender.java)
+9 classes manually updated to replace char gender with Gender gender in method signatures and internal logic.
+34 lines of code manually changed, including method parameters and comparisons (replacing 'M' with Gender.MALE).
 
+2: 
