@@ -14,7 +14,7 @@ public class HealthCalcTest {
         
         HealthCalc calc = new HealthCalcImpl();
         int height = 175;  
-        char gender = 'm';  
+        Gender gender = Gender.MALE;  
         float expectedWeight = 68.75f;  
 
         // Act
@@ -28,9 +28,9 @@ public class HealthCalcTest {
     @DisplayName("Test 2: Calculate ideal weight for a woman.")
     public void testIdealWeightWomen() throws Exception {
         
-		HealthCalc calc = new HealthCalcImpl();
+        HealthCalc calc = new HealthCalcImpl();
         int height = 170;  
-        char gender = 'w';  
+        Gender gender = Gender.FEMALE;  
         float expectedWeight = 62;  
 
         // Act
@@ -40,15 +40,13 @@ public class HealthCalcTest {
         assertEquals(expectedWeight, actualWeight);
     }
 
-
-
     @Test
     @DisplayName("Test 3: Handle negative height values.")
     public void testIdealWeightNegativeHeight() {
         
         HealthCalc calc = new HealthCalcImpl();
         int negativeHeight = -160;  
-        char gender = 'm';  
+        Gender gender = Gender.MALE;  
 
         // Act & Assert
         assertThrows(Exception.class, () -> {
@@ -56,16 +54,16 @@ public class HealthCalcTest {
         });
     }
 
-	@Test
+    @Test
     @DisplayName("Test 4: Handle invalid gender input.")
     public void testIdealWeightInvalidGender() {
         
         HealthCalc calc = new HealthCalcImpl();
         int height = 175;  
-        char invalidGender = 'x';  
+        Gender invalidGender = null;  // Invalid Gender enum value, should not be null
 
         // Act & Assert
-        assertThrows(Exception.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             calc.idealWeight(height, invalidGender);
         });
     }
@@ -75,7 +73,7 @@ public class HealthCalcTest {
     public void testIdealWeightMenMinHeight() throws Exception {
         HealthCalc calc = new HealthCalcImpl();
         int height = 84;
-        char gender = 'm';
+        Gender gender = Gender.MALE;
         float expectedWeight = 0.5f;
 
         // Act
@@ -90,7 +88,7 @@ public class HealthCalcTest {
     public void testIdealWeightWomenMinHeight() throws Exception {
         HealthCalc calc = new HealthCalcImpl();
         int height = 67;
-        char gender = 'w';
+        Gender gender = Gender.FEMALE;
         float expectedWeight = 0.2f;
 
         // Act
@@ -105,7 +103,7 @@ public class HealthCalcTest {
     public void testIdealWeightHeightBelowMinMen() {
         HealthCalc calc = new HealthCalcImpl();
         int height = 83;
-        char gender = 'm';
+        Gender gender = Gender.MALE;
 
         // Act & Assert
         assertThrows(InvalidHeightException.class, () -> {
@@ -118,14 +116,13 @@ public class HealthCalcTest {
     public void testIdealWeightHeightBelowMinWomen() {
         HealthCalc calc = new HealthCalcImpl();
         int height = 66;
-        char gender = 'w';
+        Gender gender = Gender.FEMALE;
 
         // Act & Assert
         assertThrows(InvalidHeightException.class, () -> {
             calc.idealWeight(height, gender);
         }, "Height must be >= 67 cm for women. Provided height: 66");
     }
-
 
     @Test
     @DisplayName("Test 1: Calculate Basal Metabolic Rate (BMR) for a man.")
@@ -135,7 +132,7 @@ public class HealthCalcTest {
         float weight = 70;  
         int height = 175;  
         int age = 25;  
-        char gender = 'm';  
+        Gender gender = Gender.MALE;  
         float expectedBmr = 1724.052f;  
 
         // Act
@@ -153,7 +150,7 @@ public class HealthCalcTest {
         float weight = 60;  
         int height = 165;  
         int age = 30;  
-        char gender = 'w';  
+        Gender gender = Gender.FEMALE;  
         float expectedBmr = 1383.683f;  
 
         // Act
@@ -163,18 +160,15 @@ public class HealthCalcTest {
         assertEquals(expectedBmr, actualBmr);
     }
 
-
-	@Test
-	@DisplayName("Test 3: Test for a man with zero weight")
-	void testBmrZeroWeight() {
-		HealthCalc calc = new HealthCalcImpl();
-		
-		assertThrows(InvalidValueException.class, () -> {
-			calc.basalMetabolicRate(0, 175, 30, 'm');
-		});
-	}
-
-
+    @Test
+    @DisplayName("Test 3: Test for a man with zero weight")
+    void testBmrZeroWeight() {
+        HealthCalc calc = new HealthCalcImpl();
+        
+        assertThrows(InvalidValueException.class, () -> {
+            calc.basalMetabolicRate(0, 175, 30, Gender.MALE);
+        });
+    }
 
     @Test
     @DisplayName("Test 4: Handle negative age for BMR calculation.")
@@ -183,16 +177,13 @@ public class HealthCalcTest {
         float weight = 70;
         int height = 160;
         int negativeAge = -5;
-        char gender = 'w';
+        Gender gender = Gender.FEMALE;
 
         // Act & Assert
         assertThrows(InvalidValueException.class, () -> {
             calc.basalMetabolicRate(weight, height, negativeAge, gender);
         });
     }
-
-
-
 
     @Test
     @DisplayName("Test 5: Handle invalid gender input for BMR calculation.")
@@ -202,14 +193,13 @@ public class HealthCalcTest {
         float weight = 70;  
         int height = 175;  
         int age = 25;  
-        char invalidGender = 'x';  
+        Gender invalidGender = null;  // Invalid Gender enum value, should not be null
 
         // Act & Assert
-        assertThrows(Exception.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             calc.basalMetabolicRate(weight, height, age, invalidGender);
         });
     }
-
 
     @Test
     @DisplayName("Test 6: Handle negative result in BMR calculation for men.")
@@ -218,7 +208,7 @@ public class HealthCalcTest {
         float weight = 1;
         int height = 1;
         int age = 20;
-        char gender = 'm';
+        Gender gender = Gender.MALE;
 
         // Act & Assert
         assertThrows(InvalidValueException.class, () -> {
@@ -233,7 +223,7 @@ public class HealthCalcTest {
         float weight = 1;
         int height = 1;
         int age = 107;
-        char gender = 'w';
+        Gender gender = Gender.FEMALE;
 
         // Act & Assert
         assertThrows(InvalidValueException.class, () -> {
@@ -241,4 +231,3 @@ public class HealthCalcTest {
         });
     }
 }
-

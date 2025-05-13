@@ -8,12 +8,12 @@ public abstract class HealthHospitalDecorator implements HealthHospital {
     }
 
     @Override
-    public int pesoIdeal(char genero, float altura) {
-        return wrappee.pesoIdeal(genero, altura);
+    public int pesoIdeal(Gender gender, float altura) {
+        return wrappee.pesoIdeal(gender, altura);
     }
 
     @Override
-    public double bmr(char genero, int edad, float altura, int peso) {
-        return wrappee.bmr(genero, edad, altura, peso);
+    public double bmr(Gender gender, int edad, float altura, int peso) {
+        return wrappee.bmr(gender, edad, altura, peso);
     }
 }

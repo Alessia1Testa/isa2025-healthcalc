@@ -20,26 +20,33 @@ public class HealthCalcProxy implements HealthHospital, HealthStats {
     }
 
     @Override
-    public int pesoIdeal(char genero, float altura) {
-        int peso = hCalc.pesoIdeal(genero, altura);
-        alturas.add(altura);
-        pesos.add(peso);
-        if (genero == 'H') hombres++;
-        else if (genero == 'M') mujeres++;
-        return peso;
+public int pesoIdeal(Gender gender, float altura) {
+    int peso = hCalc.pesoIdeal(gender, altura);
+    alturas.add(altura);
+    pesos.add(peso);
+    if (gender == Gender.MALE) {
+        hombres++;
+    } else if (gender == Gender.FEMALE) {
+        mujeres++;
     }
+    return peso;
+}
 
-    @Override
-    public double bmr(char genero, int edad, float altura, int peso) {
-        double bmr = hCalc.bmr(genero, edad, altura, peso);
-        edades.add(edad);
-        alturas.add(altura);
-        pesos.add(peso);
-        bmrs.add(bmr);
-        if (genero == 'H') hombres++;
-        else if (genero == 'M') mujeres++;
-        return bmr;
+@Override
+public double bmr(Gender gender, int edad, float altura, int peso) {
+    double bmr = hCalc.bmr(gender, edad, altura, peso);
+    edades.add(edad);
+    alturas.add(altura);
+    pesos.add(peso);
+    bmrs.add(bmr);
+    if (gender == Gender.MALE) {
+        hombres++;
+    } else if (gender == Gender.FEMALE) {
+        mujeres++;
     }
+    return bmr;
+}
+
 
 
     @Override

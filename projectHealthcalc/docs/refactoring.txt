@@ -1,0 +1,13 @@
+Refactorings:
+
+1:
+The "m" or "w" are characters and are replaced by an enumeration.
+
+Bad smell: Primitive Obsession
+Type: Encapsulation Refactoring
+Refactoring: Extract Class (Enum)
+Category: Attribute Refactoring
+
+Replaced the primitive type char used for gender ('m', 'w') with an enumeration named Gender, with values MALE and FEMALE.
+
+

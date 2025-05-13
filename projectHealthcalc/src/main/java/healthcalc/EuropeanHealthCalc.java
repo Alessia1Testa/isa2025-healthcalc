@@ -6,9 +6,9 @@ public class EuropeanHealthCalc extends HealthHospitalDecorator {
     }
 
     @Override
-    public double bmr(char genero, int edad, float alturaMetros, int pesoGramos) {
+    public double bmr(Gender gender, int edad, float alturaMetros, int pesoGramos) {
         float alturaCm = alturaMetros * 100;
         int pesoKg = pesoGramos / 1000;
-        return super.bmr(genero, edad, alturaCm, pesoKg);
+        return super.bmr(gender, edad, alturaCm, pesoKg);
     }
 }
