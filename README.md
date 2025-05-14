@@ -143,3 +143,110 @@ b. Proxy is used
 
 c. Decorator is used
 ![UML_decorator](projectHealthcalc/design_patterns/UML_decorator.png)
+
+# Practica7: Refactoring
+
+
+This document outlines the five refactorings applied to improve code readability, maintainability, and domain modeling precision.
+
+---
+
+## 1. Replace Primitive with Enumeration (`Gender`)
+
+- **Bad Smell**: Primitive Obsession
+- **Type**: Encapsulation Refactoring
+- **Refactoring**: Extract Class (Enum)
+- **Category**: Attribute Refactoring
+
+### Description:
+The primitive character type used for gender (e.g., `'m'`, `'w'`) has been replaced with an enumeration `Gender`, which defines `MALE` and `FEMALE`. This improves type safety and semantic clarity.
+
+### Manual Changes:
+- **1 enum class added**: `Gender.java`
+- **8 classes manually updated**: changed parameter type from `char` to `Gender`
+- **34 lines of code manually changed**: method signatures, internal conditions, and comparisons
+
+---
+
+## 2. Replace Long Parameter List with Person Object
+
+- **Bad Smell**: Long Parameter List
+- **Type**: Encapsulation Refactoring
+- **Refactoring**: Introduce Parameter Object
+- **Category**: Method Refactoring
+
+### Description:
+Replaced repeated use of `(float weight, int height, int age, Gender gender)` in method signatures with a single `Person` object. This encapsulates the related parameters into a cohesive domain object.
+
+### Manual Changes:
+- **2 classes added**: `Person.java`, `PersonImpl.java`
+- **10 classes manually updated**: replaced individual parameters with `Person`
+- **51 lines of code manually changed** (excluding tests)
+
+---
+
+## 3. Extract Class: Split Responsibilities
+
+- **Bad Smell**: God Class / Too Many Responsibilities
+- **Type**: Encapsulation + Responsibility Separation
+- **Refactoring**: Extract Class
+- **Category**: Class Refactoring
+
+### Description:
+`HealthCalcImpl` was responsible for both cardiovascular and metabolic calculations. It was split into:
+- `CardiovascularMetrics` for ideal body weight
+- `MetabolicMetrics` for basal metabolic rate (BMR)
+
+This supports the Single Responsibility Principle and reduces class size.
+
+### Manual Changes:
+- **2 classes added**: `CardiovascularMetrics.java`, `MetabolicMetrics.java`
+- **1 class updated**: `HealthCalcImpl.java` (delegates to the new classes)
+- **4 lines of code changed** in `HealthCalcImpl`
+- **No changes required** for other classes or tests
+
+---
+
+## 4. Rename Method: `idealWeight` → `getIdealBodyWeight`
+
+- **Bad Smell**: Method Name Ambiguity
+- **Type**: Method Refactoring
+- **Category**: Naming Refactor
+- **Refactoring**: Change Method Name
+
+### Description:
+Renamed method `idealWeight` to `getIdealBodyWeight` to clarify its purpose and make the name more descriptive.
+
+### Manual Changes:
+- **0 class added**
+- **4 classes updated**
+- **5 lines of code changed** (excluding 8 lines in test updates)
+
+---
+
+## 5. Replace Primitive Types: `float` → `double`, `int` → `float` (for height)
+
+- **Bad Smell**: Primitive Obsession
+- **Type**: Data Type/Attribute Refactoring
+- **Category**: Type Precision
+- **Refactoring**: Replace Type
+
+### Description:
+Improved numerical precision by replacing:
+- Return types of calculations from `float` to `double`
+- `int height` in `Person` → `float height`
+
+This aligns with modern standards for health calculations requiring decimal precision.
+
+### Manual Changes:
+- **0 class added**
+- **6 classes updated**
+- **14 lines of code changed** (excluding 5 lines in tests)
+- **3 additional lines changed** in:
+  - `BMRMessageDecorator.java`
+  - `EuropeanHealthCalc.java`
+  - `AmericanHealthCalc.java`
+
+These classes were adjusted for compatibility with the updated `float` height.
+
+---
