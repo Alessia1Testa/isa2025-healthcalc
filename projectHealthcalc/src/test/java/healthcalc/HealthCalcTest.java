@@ -16,7 +16,7 @@ public class HealthCalcTest {
         float expectedWeight = 68.75f;  
 
         // Act
-        float actualWeight = calc.getIdealBodyWeight(person);  
+        double actualWeight = calc.getIdealBodyWeight(person);  
 
         // Assert
         assertEquals(expectedWeight, actualWeight);
@@ -30,7 +30,7 @@ public class HealthCalcTest {
         float expectedWeight = 62;  
 
         // Act
-        float actualWeight = calc.getIdealBodyWeight(person);  
+        double actualWeight = calc.getIdealBodyWeight(person);  
 
         // Assert
         assertEquals(expectedWeight, actualWeight);
@@ -68,7 +68,7 @@ public class HealthCalcTest {
         float expectedWeight = 0.5f;
 
         // Act
-        float actualWeight = calc.getIdealBodyWeight(person);  
+        double actualWeight = calc.getIdealBodyWeight(person);  
 
         // Assert
         assertEquals(expectedWeight, actualWeight);
@@ -82,7 +82,7 @@ public class HealthCalcTest {
         float expectedWeight = 0.2f;
 
         // Act
-        float actualWeight = calc.getIdealBodyWeight(person);  
+        double actualWeight = calc.getIdealBodyWeight(person);  
 
         // Assert
         assertEquals(expectedWeight, actualWeight, 0.0001);
@@ -120,7 +120,7 @@ public class HealthCalcTest {
         float expectedBmr = 1724.052f;  
 
         // Act
-        float actualBmr = calc.basalMetabolicRate(person);  
+        double actualBmr = calc.basalMetabolicRate(person);  
 
         // Assert
         assertEquals(expectedBmr, actualBmr);
@@ -134,7 +134,7 @@ public class HealthCalcTest {
         float expectedBmr = 1383.683f;  
 
         // Act
-        float actualBmr = calc.basalMetabolicRate(person);  
+        double actualBmr = calc.basalMetabolicRate(person);  
 
         // Assert
         assertEquals(expectedBmr, actualBmr);

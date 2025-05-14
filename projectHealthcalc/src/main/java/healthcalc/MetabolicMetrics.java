@@ -1,10 +1,10 @@
 package healthcalc;
 
 public class MetabolicMetrics {
-    public float basalMetabolicRate(Person person)
+    public double basalMetabolicRate(Person person)
             throws InvalidValueException, InvalidGenderException {
 
-        int height = person.height();         
+        float height = person.height();         
         Gender gender = person.gender();
         float weight = person.weight();
         int age = person.age();

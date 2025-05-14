@@ -29,7 +29,7 @@ public class ControllerCalc implements ActionListener {
                 Person person = new PersonImpl(70f, height, 30, gender);  
 
                 
-                float idealWeight = model.getIdealBodyWeight(person);
+                double idealWeight = model.getIdealBodyWeight(person);
                 view.showIWText("The Ideal Weight is equal to: " + idealWeight + " kg");
 
             } catch (NumberFormatException exc) {
@@ -56,7 +56,7 @@ public class ControllerCalc implements ActionListener {
                 Person person = new PersonImpl(weight, height, age, gender);
 
                 
-                float bmr = model.basalMetabolicRate(person);
+                double bmr = model.basalMetabolicRate(person);
                 view.showBMIText("The Basal Metabolic Rate is equal to: " + bmr);
 
             } catch (NumberFormatException exc) {

@@ -17,12 +17,12 @@ public class HealthCalcImpl implements HealthCalc {
     }
 
     @Override
-    public float getIdealBodyWeight(Person person) throws InvalidHeightException, InvalidGenderException {
+    public double getIdealBodyWeight(Person person) throws InvalidHeightException, InvalidGenderException {
         return cardio.idealWeight(person);
     }
 
     @Override
-    public float basalMetabolicRate(Person person)
+    public double basalMetabolicRate(Person person)
             throws InvalidValueException, InvalidGenderException {
         return metabolic.basalMetabolicRate(person);
     }

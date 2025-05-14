@@ -11,7 +11,7 @@ public class BMRMessageDecorator extends HealthHospitalDecorator {
     public double bmr(Person person) {
         Gender gender = person.gender();
         int edad = person.age();
-        int altura = person.height();
+        float altura = person.height();
         int peso = (int) person.weight();
 
         double result = super.bmr(person);

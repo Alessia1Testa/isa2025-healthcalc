@@ -11,11 +11,11 @@ public class EuropeanHealthCalc extends HealthHospitalDecorator {
         
         Gender gender = person.gender();           
         int edad = person.age();                   
-        int alturaMetros = person.height();      
+        float alturaMetros = person.height();      
         float pesoGramos = person.weight();          
 
         
-        int alturaCm = alturaMetros * 100;       
+        float alturaCm = alturaMetros * 100;       
         float pesoKg = pesoGramos / 1000;            
 
         

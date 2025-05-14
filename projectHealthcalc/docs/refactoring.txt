@@ -12,7 +12,7 @@ Replaced the primitive type char used for gender ('m', 'w') with an enumeration 
 
 Manual changes required:
 1 enum class added (Gender.java)
-9 classes manually updated to replace char gender with Gender gender in method signatures and internal logic.
+8 classes manually updated to replace char gender with Gender gender in method signatures and internal logic.
 34 lines of code manually changed, including method parameters and comparisons (replacing 'M' with Gender.MALE).
 
 2: 
@@ -28,7 +28,7 @@ Replaced repeated use of (float weight, int height, int age, Gender gender) acro
 
 Manual changes required:
 2 class added (Person.java, PersonImpl.java)
-11 classes manually updated to replace the list of parameters into the object Person.
+10 classes manually updated to replace the list of parameters into the object Person.
 51 lines of code manually changed without considering the test.
 
 3: 
@@ -65,5 +65,22 @@ The new name getIdealBodyWeight makes the purpose of the method clearer, helping
 
 Manual changes required:
 0 class added.
-5 class manually updated.
+4 class manually updated.
 5 lines of code manually changed without considering 8 line in the tests.
+
+5:
+Replace Primitive with More Suitable Type (float to double and int to float)
+
+Bad Smell: Primitive Obsession
+Type: Data Type/Attribute Refactoring
+Category: Type Precision
+Refactoring : Replace Type
+
+Description:
+Change method return types from float to double and change parameter int height in class Person into float height.
+
+Manual changes required:
+0 class added.
+6 class manually updated. Then BMRMessageDecorator.java, EuropeanHealthCalc.java and AmericanHealthCalc.java are changed just to avoid an error.
+14 lines of code manually changed without considering 5 line in the tests. And 3 more lines to update into "float altura = person.height();" in BMRMessageDecorator.java, EuropeanHealthCalc.java and AmericanHealthCalc.java.
+

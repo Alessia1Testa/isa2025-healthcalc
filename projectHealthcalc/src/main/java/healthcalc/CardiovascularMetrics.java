@@ -1,9 +1,9 @@
 package healthcalc;
 
 public class CardiovascularMetrics {
-    public float idealWeight(Person person) throws InvalidHeightException, InvalidGenderException {
+    public double idealWeight(Person person) throws InvalidHeightException, InvalidGenderException {
 
-        int height = person.height();         
+        float height = person.height();         
         Gender gender = person.gender();
 
         if (height <= 0 || height > 230) {

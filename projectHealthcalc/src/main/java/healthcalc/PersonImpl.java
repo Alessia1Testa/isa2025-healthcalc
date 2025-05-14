@@ -2,12 +2,12 @@ package healthcalc;
 
 public class PersonImpl implements Person {
     private final float weight;
-    private final int height;
+    private final float height;
     private final int age;
     private final Gender gender;
 
 
-    public PersonImpl(float weight, int height, int age, Gender gender) {
+    public PersonImpl(float weight, float height, int age, Gender gender) {
         this.weight = weight;
         this.height = height;
         this.age = age;
@@ -21,7 +21,7 @@ public class PersonImpl implements Person {
     }
 
     @Override
-    public int height() {
+    public float height() {
         return height;
     }
 

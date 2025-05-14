@@ -2,7 +2,7 @@ package healthcalc;
 
 public interface Person {
     float weight();
-    int height();
+    float height();
     int age();
     Gender gender();
 }
