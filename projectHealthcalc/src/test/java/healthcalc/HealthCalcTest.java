@@ -16,7 +16,7 @@ public class HealthCalcTest {
         float expectedWeight = 68.75f;  
 
         // Act
-        float actualWeight = calc.idealWeight(person);  
+        float actualWeight = calc.getIdealBodyWeight(person);  
 
         // Assert
         assertEquals(expectedWeight, actualWeight);
@@ -30,7 +30,7 @@ public class HealthCalcTest {
         float expectedWeight = 62;  
 
         // Act
-        float actualWeight = calc.idealWeight(person);  
+        float actualWeight = calc.getIdealBodyWeight(person);  
 
         // Assert
         assertEquals(expectedWeight, actualWeight);
@@ -44,7 +44,7 @@ public class HealthCalcTest {
 
         // Act & Assert
         assertThrows(Exception.class, () -> {
-            calc.idealWeight(person);  
+            calc.getIdealBodyWeight(person);  
         });
     }
 
@@ -56,7 +56,7 @@ public class HealthCalcTest {
 
         // Act & Assert
         assertThrows(InvalidGenderException.class, () -> {
-            calc.idealWeight(person);  
+            calc.getIdealBodyWeight(person);  
         });
     }
 
@@ -68,7 +68,7 @@ public class HealthCalcTest {
         float expectedWeight = 0.5f;
 
         // Act
-        float actualWeight = calc.idealWeight(person);  
+        float actualWeight = calc.getIdealBodyWeight(person);  
 
         // Assert
         assertEquals(expectedWeight, actualWeight);
@@ -82,7 +82,7 @@ public class HealthCalcTest {
         float expectedWeight = 0.2f;
 
         // Act
-        float actualWeight = calc.idealWeight(person);  
+        float actualWeight = calc.getIdealBodyWeight(person);  
 
         // Assert
         assertEquals(expectedWeight, actualWeight, 0.0001);
@@ -96,7 +96,7 @@ public class HealthCalcTest {
 
         // Act & Assert
         assertThrows(InvalidHeightException.class, () -> {
-            calc.idealWeight(person);  
+            calc.getIdealBodyWeight(person);  
         }, "Height must be >= 84 cm for men. Provided height: 83");
     }
 
@@ -108,7 +108,7 @@ public class HealthCalcTest {
 
         // Act & Assert
         assertThrows(InvalidHeightException.class, () -> {
-            calc.idealWeight(person);  
+            calc.getIdealBodyWeight(person);  
         }, "Height must be >= 67 cm for women. Provided height: 66");
     }
 

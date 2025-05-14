@@ -17,7 +17,7 @@ public class HealthCalcImpl implements HealthCalc {
     }
 
     @Override
-    public float idealWeight(Person person) throws InvalidHeightException, InvalidGenderException {
+    public float getIdealBodyWeight(Person person) throws InvalidHeightException, InvalidGenderException {
         return cardio.idealWeight(person);
     }
 

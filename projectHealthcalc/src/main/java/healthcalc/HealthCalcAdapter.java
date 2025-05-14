@@ -17,7 +17,7 @@ public class HealthCalcAdapter implements HealthHospital {
     @Override
     public int pesoIdeal(Person person) {
         
-        return (int) calc.idealWeight(person);
+        return (int) calc.getIdealBodyWeight(person);
     }
 }
 

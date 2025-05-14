@@ -51,3 +51,19 @@ Manual changes required:
 HealthCalcImpl indeed is updated in order to be light and delegate to the new classes CardiovascularMetrics.java and MetabolicMetrics.java
 4 lines of code manually changed. HealthCalc and all the others classes and also tests does not need to be changed. It is the advantage of this refactoring.
 
+4: 
+Rename Method (idealWeight to getIdealBodyWeight)
+
+Bad Smell: Method Name Ambiguity. The method name idealWeight is not immediately clear in its intent. 
+Type: Method Refactoring
+Category: Naming Refactor
+Refactoring : Change Method Name
+
+Description:
+The method idealWeight was potentially confusing.
+The new name getIdealBodyWeight makes the purpose of the method clearer, helping other developers understand what the method does just by reading its name.
+
+Manual changes required:
+0 class added.
+4 class manually updated.
+4 lines of code manually changed without considering 8 line in the tests.
