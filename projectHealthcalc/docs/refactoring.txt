@@ -25,3 +25,10 @@ Category: Method Refactoring
 
 Description:
 Replaced repeated use of (float weight, int height, int age, Gender gender) across method signatures with a single Person object encapsulating these values.
+
+Manual changes required:
+2 class added (Person.java, PersonImpl.java)
+11 classes manually updated to replace the list of parameters into the object Person.
+51 lines of code manually changed without considering the test.
+
+3: 
