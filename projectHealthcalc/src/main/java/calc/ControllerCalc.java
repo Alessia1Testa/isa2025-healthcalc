@@ -3,8 +3,6 @@ package calc;
 import healthcalc.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import healthcalc.HealthCalc;
-import healthcalc.HealthCalcImpl;
 
 public class ControllerCalc implements ActionListener {
 
@@ -31,7 +29,7 @@ public class ControllerCalc implements ActionListener {
                 Person person = new PersonImpl(70f, height, 30, gender);  
 
                 
-                float idealWeight = model.idealWeight(person);
+                float idealWeight = model.getIdealBodyWeight(person);
                 view.showIWText("The Ideal Weight is equal to: " + idealWeight + " kg");
 
             } catch (NumberFormatException exc) {

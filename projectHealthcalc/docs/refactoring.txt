@@ -65,5 +65,5 @@ The new name getIdealBodyWeight makes the purpose of the method clearer, helping
 
 Manual changes required:
 0 class added.
-4 class manually updated.
-4 lines of code manually changed without considering 8 line in the tests.
+5 class manually updated.
+5 lines of code manually changed without considering 8 line in the tests.
