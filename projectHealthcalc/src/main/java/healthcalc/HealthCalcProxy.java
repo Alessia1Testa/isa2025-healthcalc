@@ -8,45 +8,57 @@ public class HealthCalcProxy implements HealthHospital, HealthStats {
     private HealthHospital hCalc;
 
     private List<Float> alturas = new ArrayList<>();
-    private List<Integer> pesos = new ArrayList<>();
+    private List<Float> pesos = new ArrayList<>();
     private List<Integer> edades = new ArrayList<>();
     private List<Double> bmrs = new ArrayList<>();
 
     private int hombres = 0;
     private int mujeres = 0;
 
-    public HealthCalcProxy(HealthHospital heCalc) {
-        this.hCalc = heCalc;
+
+    public HealthCalcProxy(HealthHospital hCalc) {
+        this.hCalc = hCalc;
     }
 
     @Override
-public int pesoIdeal(Gender gender, float altura) {
-    int peso = hCalc.pesoIdeal(gender, altura);
-    alturas.add(altura);
-    pesos.add(peso);
-    if (gender == Gender.MALE) {
-        hombres++;
-    } else if (gender == Gender.FEMALE) {
-        mujeres++;
-    }
-    return peso;
-}
+    public int pesoIdeal(Person person) {
+        float altura = person.height();
+        Gender gender = person.gender();
 
-@Override
-public double bmr(Gender gender, int edad, float altura, int peso) {
-    double bmr = hCalc.bmr(gender, edad, altura, peso);
-    edades.add(edad);
-    alturas.add(altura);
-    pesos.add(peso);
-    bmrs.add(bmr);
-    if (gender == Gender.MALE) {
-        hombres++;
-    } else if (gender == Gender.FEMALE) {
-        mujeres++;
-    }
-    return bmr;
-}
+        int peso = hCalc.pesoIdeal(person);
+        alturas.add(altura);
+        pesos.add((float) peso); 
 
+        if (gender == Gender.MALE) {
+            hombres++;
+        } else if (gender == Gender.FEMALE) {
+            mujeres++;
+        }
+
+        return peso;
+    }
+
+    @Override
+    public double bmr(Person person) {
+        float altura = person.height();
+        float peso = person.weight();
+        int edad = person.age();
+        Gender gender = person.gender();
+
+        double bmr = hCalc.bmr(person);
+        edades.add(edad);
+        alturas.add(altura);
+        pesos.add(peso);
+        bmrs.add(bmr);
+
+        if (gender == Gender.MALE) {
+            hombres++;
+        } else if (gender == Gender.FEMALE) {
+            mujeres++;
+        }
+
+        return bmr;
+    }
 
 
     @Override
@@ -56,7 +68,10 @@ public double bmr(Gender gender, int edad, float altura, int peso) {
 
     @Override
     public float pesoMedio() {
-        return (float) pesos.stream().mapToInt(Integer::intValue).average().orElse(0);
+        return (float) pesos.stream()
+                            .mapToDouble(Float::doubleValue)
+                            .average()
+                            .orElse(0);
     }
 
     @Override

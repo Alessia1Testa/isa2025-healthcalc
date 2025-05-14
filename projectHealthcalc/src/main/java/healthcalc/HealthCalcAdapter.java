@@ -9,15 +9,15 @@ public class HealthCalcAdapter implements HealthHospital {
     }
 
     @Override
-    public double bmr(Gender gender, int edad, float altura, int peso) {
-        float alturaCm = altura * 100; 
-        float pesoKg = peso / 1000f;   
-        return calc.basalMetabolicRate(pesoKg, (int) alturaCm, edad, gender);
+    public double bmr(Person person) {
+        
+        return calc.basalMetabolicRate(person);
     }
 
     @Override
-    public int pesoIdeal(Gender gender, float altura) {
-        int alturaCm = (int) (altura * 100); 
-        return (int) calc.idealWeight(alturaCm, gender);
+    public int pesoIdeal(Person person) {
+        
+        return (int) calc.idealWeight(person);
     }
 }
+

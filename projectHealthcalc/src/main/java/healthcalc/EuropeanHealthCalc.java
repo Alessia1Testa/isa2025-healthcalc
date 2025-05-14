@@ -1,14 +1,27 @@
 package healthcalc;
 
 public class EuropeanHealthCalc extends HealthHospitalDecorator {
+
     public EuropeanHealthCalc(HealthHospital wrappee) {
         super(wrappee);
     }
 
     @Override
-    public double bmr(Gender gender, int edad, float alturaMetros, int pesoGramos) {
-        float alturaCm = alturaMetros * 100;
-        int pesoKg = pesoGramos / 1000;
-        return super.bmr(gender, edad, alturaCm, pesoKg);
+    public double bmr(Person person) {
+        
+        Gender gender = person.gender();           
+        int edad = person.age();                   
+        int alturaMetros = person.height();      
+        float pesoGramos = person.weight();          
+
+        
+        int alturaCm = alturaMetros * 100;       
+        float pesoKg = pesoGramos / 1000;            
+
+        
+        Person personWithConvertedData = new PersonImpl(pesoKg, alturaCm, edad, gender); 
+
+        return super.bmr(personWithConvertedData);  
     }
+    
 }

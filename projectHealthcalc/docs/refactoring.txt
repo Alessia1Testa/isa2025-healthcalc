@@ -16,3 +16,12 @@ Manual changes required:
 34 lines of code manually changed, including method parameters and comparisons (replacing 'M' with Gender.MALE).
 
 2: 
+Replaced Long Parameter List with a Person Object
+
+Bad Smell: Long Parameter List
+Type: Encapsulation Refactoring
+Refactoring: Introduce Parameter Object
+Category: Method Refactoring
+
+Description:
+Replaced repeated use of (float weight, int height, int age, Gender gender) across method signatures with a single Person object encapsulating these values.

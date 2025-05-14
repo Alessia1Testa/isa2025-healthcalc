@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import healthcalc.Gender;
+
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -222,6 +225,14 @@ public class VistaCalc extends JFrame {
     public JComboBox<String> getComboBoxSexo2() {
         return this.cBSexo2; 
     }
+
+	public Gender getGenderFromComboBox1() {
+    return cBSexo1.getSelectedItem().equals("M") ? Gender.MALE : Gender.FEMALE;
+	}
+
+	public Gender getGenderFromComboBox2() {
+    return cBSexo2.getSelectedItem().equals("M") ? Gender.MALE : Gender.FEMALE;
+	}
 
     
     public void showIWText(String message) {
