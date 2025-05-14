@@ -32,3 +32,22 @@ Manual changes required:
 51 lines of code manually changed without considering the test.
 
 3: 
+Extract Class (split into CardiovascularMetrics and MetabolicMetrics)
+
+Bad Smell: God Class / Too Many Responsibilities
+Type: Encapsulation + Responsibility Separation
+Refactoring: Extract Class: Moved methods from a single, overly responsible class (HealthCalcImpl) into more cohesive domain-specific classes:
+CardiovascularMetrics focused on ideal body weight calculations;
+MetabolicMetrics focused on metabolic rate calculations.
+Category: Class Refactoring
+
+Description:
+The class HealthCalcImpl handled multiple responsibilities (cardiovascular and metabolic calculations), violating the Single Responsibility Principle. 
+This made the class harder to maintain and extend and big.
+
+Manual changes required:
+2 class added (CardiovascularMetrics.java and MetabolicMetrics.java)
+1 class manually updated. 
+HealthCalcImpl indeed is updated in order to be light and delegate to the new classes CardiovascularMetrics.java and MetabolicMetrics.java
+4 lines of code manually changed. HealthCalc and all the others classes and also tests does not need to be changed. It is the advantage of this refactoring.
+
