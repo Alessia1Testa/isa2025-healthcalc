@@ -163,7 +163,7 @@ The primitive character type used for gender (e.g., `'m'`, `'w'`) has been repla
 
 ### Manual Changes:
 - **1 enum class added**: `Gender.java`
-- **8 classes manually updated**: changed parameter type from `char` to `Gender`
+- **9 classes manually updated**: changed parameter type from `char` to `Gender`
 - **34 lines of code manually changed**: method signatures, internal conditions, and comparisons
 
 ---
@@ -180,7 +180,7 @@ Replaced repeated use of `(float weight, int height, int age, Gender gender)` in
 
 ### Manual Changes:
 - **2 classes added**: `Person.java`, `PersonImpl.java`
-- **10 classes manually updated**: replaced individual parameters with `Person`
+- **9 classes manually updated**: replaced individual parameters with `Person`
 - **51 lines of code manually changed** (excluding tests)
 
 ---
@@ -202,7 +202,7 @@ This supports the Single Responsibility Principle and reduces class size.
 ### Manual Changes:
 - **2 classes added**: `CardiovascularMetrics.java`, `MetabolicMetrics.java`
 - **1 class updated**: `HealthCalcImpl.java` (delegates to the new classes)
-- **4 lines of code changed** in `HealthCalcImpl`
+- **4 lines of code changed** in `HealthCalcImpl` (not considering as changed the lines of the methods extracted and so deleted)
 - **No changes required** for other classes or tests
 
 ---

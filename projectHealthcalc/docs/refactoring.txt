@@ -12,7 +12,7 @@ Replaced the primitive type char used for gender ('m', 'w') with an enumeration 
 
 Manual changes required:
 1 enum class added (Gender.java)
-8 classes manually updated to replace char gender with Gender gender in method signatures and internal logic.
+9 classes manually updated to replace char gender with Gender gender in method signatures and internal logic.
 34 lines of code manually changed, including method parameters and comparisons (replacing 'M' with Gender.MALE).
 
 2: 
@@ -28,7 +28,7 @@ Replaced repeated use of (float weight, int height, int age, Gender gender) acro
 
 Manual changes required:
 2 class added (Person.java, PersonImpl.java)
-10 classes manually updated to replace the list of parameters into the object Person.
+9 classes manually updated to replace the list of parameters into the object Person.
 51 lines of code manually changed without considering the test.
 
 3: 
@@ -50,6 +50,7 @@ Manual changes required:
 1 class manually updated. 
 HealthCalcImpl indeed is updated in order to be light and delegate to the new classes CardiovascularMetrics.java and MetabolicMetrics.java
 4 lines of code manually changed. HealthCalc and all the others classes and also tests does not need to be changed. It is the advantage of this refactoring.
+(not considering as changed the lines of the methods extracted and so deleted)
 
 4: 
 Rename Method (idealWeight to getIdealBodyWeight)
