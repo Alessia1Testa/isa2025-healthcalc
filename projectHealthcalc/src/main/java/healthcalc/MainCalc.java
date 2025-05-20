@@ -7,17 +7,13 @@ public class MainCalc {
 
 
 public static void main(String[] args) {
-	HealthCalc model = HealthCalcImpl.getInstance();
+	
+        Person p = new PersonImpl(70, 175f, 30, Gender.MALE); 
+        CardiovascularMetrics cvm = new CardiovascularMetrics();
+		double idealWeight = cvm.idealWeight(p);
 
-    
-    HealthHospital adapter = new HealthCalcAdapter(model);
-
-	HealthStats proxy = new HealthCalcProxy(adapter);
-    
-	HealthHospital hospital = (HealthHospital) proxy;
-
-	HealthHospital european = new BMRMessageDecorator(new EuropeanHealthCalc(hospital));
-
+        System.out.println("Peso ideale: " + idealWeight + " kg");
+        
 	}
 }
 
