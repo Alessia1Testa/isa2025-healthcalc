@@ -136,10 +136,22 @@ I've done the UML using drawio, but the source could not be downloaded
 a. Adapter is used
 ![UML_adapter](projectHealthcalc/design_patterns/UML_adapter.png)
 
+Adapter Pattern:
+Applied to implement the HealthHospital interface.
+Classes involved: HealthCalcAdapter.
+
 
 b. Proxy is used
 ![UML_proxy](projectHealthcalc/design_patterns/UML_proxy.png)
 
+Proxy Pattern:
+Used to track usage and patient data statistics via the HealthStats interface.
+Class involved: HealthCalcProxy and HealthStats.
+
 
 c. Decorator is used
 ![UML_decorator](projectHealthcalc/design_patterns/UML_decorator.png)
+
+Decorator Pattern:
+Used to support multiple units and multilingual BMR messages.
+Classes involved: HealthHospitalDecoratorLanguage, HealthHospitalDecoratorRegion, EuropeanHealthCalc, AmericanHealthCalc, BMREngMessageDecorator and BMREspMessageDecorator.
